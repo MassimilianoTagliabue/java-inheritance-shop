@@ -7,7 +7,7 @@ public class Smatphone extends Prodotto{
     protected int codiceIMEI;
     protected int memoria;
 
-    public Smatphone ( String nome, String marca, BigDecimal prezzo , BigDecimal iva, int codiceIMEI, int memoria){
+    public Smatphone (String nome, String marca, BigDecimal prezzo , BigDecimal iva, int codiceIMEI, int memoria){
 
         super(nome, marca, prezzo, iva);
         this.codiceIMEI = codiceIMEI;
@@ -31,6 +31,6 @@ public class Smatphone extends Prodotto{
     }
 
     public void printSmartphone(){
-        System.out.println(nome + " " + marca + " " + codiceIMEI + " " + memoria + " " + getCode() );
+        System.out.println(nome + " " + marca + " " + codiceIMEI + " " + memoria + " " + getCode()+ " " + getPriceIva());
     }
 }

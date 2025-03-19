@@ -10,6 +10,9 @@ public class main {
 
         Smatphone s20 = new Smatphone("s20", "samsung", new BigDecimal(500), new BigDecimal(0.22), 21321321, 128);
 
+        Televisori lg = new Televisori("lg", "lg", new BigDecimal(300), new BigDecimal(0.22), 50, true);
+
         s20.printSmartphone();
+        lg.printTelevisore();
     }
 }

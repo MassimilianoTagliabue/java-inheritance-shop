@@ -63,7 +63,7 @@ public class Prodotto {
 
     public BigDecimal getPriceIva() {
         if(prezzo != null && iva != null){
-            return prezzo.multiply(iva).setScale(2, RoundingMode.DOWN); //setscale per gestire l'arrotondamento
+            return prezzo.add(prezzo.multiply(iva).setScale(2, RoundingMode.DOWN)); //setscale per gestire l'arrotondamento
         }else{
             return null;
         }
