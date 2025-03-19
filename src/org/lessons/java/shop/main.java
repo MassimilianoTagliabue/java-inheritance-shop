@@ -12,7 +12,10 @@ public class main {
 
         Televisori lg = new Televisori("lg", "lg", new BigDecimal(300), new BigDecimal(0.22), 50, true);
 
+        Cuffie rgb = new Cuffie("rgb", "logitech" ,new BigDecimal(230), new BigDecimal(0.22), "verde", false);
+
         s20.printSmartphone();
         lg.printTelevisore();
+        rgb.printCuffie();
     }
 }
