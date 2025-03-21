@@ -11,17 +11,17 @@ public class Prodotto {
     protected String nome;
     protected String marca;
     protected BigDecimal prezzo;        //i BigDecimal vengono usati quando lavoriamo con le valute
-    protected BigDecimal iva;
+    protected BigDecimal iva = new BigDecimal(0.22);
 
     
 
-    public Prodotto(String nome, String marca, BigDecimal prezzo, BigDecimal iva) {
+    public Prodotto(String nome, String marca, BigDecimal prezzo) {
         Random rand = new Random();
         this.code = rand.nextInt(1000) + 1; // numero casuale da 1 a 1000
         this.nome = nome;
         this.marca = marca;
         this.prezzo = prezzo;
-        this.iva = iva;
+        
     }
 
     public int getCode(){

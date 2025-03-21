@@ -7,8 +7,10 @@ public class Televisori extends Prodotto{
     protected int pollici;
     protected boolean smart;
 
-    public Televisori(String nome, String marca, BigDecimal prezzo , BigDecimal iva, int pollici, boolean smart){
-        super(nome,marca,prezzo,iva);
+    
+
+    public Televisori(String nome, String marca, BigDecimal prezzo , int pollici, boolean smart){
+        super(nome,marca,prezzo);
         this.pollici = pollici;
         this.smart = smart;
     }

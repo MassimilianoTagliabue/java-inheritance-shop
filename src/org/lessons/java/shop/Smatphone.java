@@ -7,9 +7,9 @@ public class Smatphone extends Prodotto{
     protected int codiceIMEI;
     protected int memoria;
 
-    public Smatphone (String nome, String marca, BigDecimal prezzo , BigDecimal iva, int codiceIMEI, int memoria){
+    public Smatphone (String nome, String marca, BigDecimal prezzo , int codiceIMEI, int memoria){
 
-        super(nome, marca, prezzo, iva);
+        super(nome, marca, prezzo);
         this.codiceIMEI = codiceIMEI;
         this.memoria = memoria;
     }
