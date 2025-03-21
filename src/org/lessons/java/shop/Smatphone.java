@@ -1,6 +1,7 @@
 package org.lessons.java.shop;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Smatphone extends Prodotto{
 
@@ -29,6 +30,24 @@ public class Smatphone extends Prodotto{
     public int getMemoria(){
         return memoria;
     }
+
+    @Override
+    public void setSconto(boolean cartaFedelta){
+
+        if(memoria <= 32 && cartaFedelta == true){
+            this.prezzoScontato = getPriceIva().subtract(getPriceIva().multiply(new BigDecimal(0.05)).setScale(2, RoundingMode.DOWN));
+        }else if(cartaFedelta = true){
+            this.prezzoScontato = getSconto();
+        }else{
+            this.prezzoScontato = getSconto();
+        }
+    }
+
+    @Override
+    public BigDecimal getSconto(){
+        return prezzoScontato;
+    }
+    
 
     @Override
     public String toString(){

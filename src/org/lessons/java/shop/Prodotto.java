@@ -5,15 +5,13 @@ import java.math.RoundingMode;
 import java.util.Random;
 
 public class Prodotto {
-   
 
     protected int code;
     protected String nome;
     protected String marca;
-    protected BigDecimal prezzo;        //i BigDecimal vengono usati quando lavoriamo con le valute
+    protected BigDecimal prezzo; // i BigDecimal vengono usati quando lavoriamo con le valute
     protected BigDecimal iva = new BigDecimal(0.22);
-
-    
+    protected BigDecimal prezzoScontato;
 
     public Prodotto(String nome, String marca, BigDecimal prezzo) {
         Random rand = new Random();
@@ -21,60 +19,71 @@ public class Prodotto {
         this.nome = nome;
         this.marca = marca;
         this.prezzo = prezzo;
-        
+
     }
 
-    public int getCode(){
+    public int getCode() {
         return code;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
-    public void setMarca(String marca){
+    public void setMarca(String marca) {
         this.marca = marca;
     }
 
-    public String getMarca(){
+    public String getMarca() {
         return marca;
     }
 
-    public void setPrezzo(BigDecimal prezzo){
+    public void setPrezzo(BigDecimal prezzo) {
         this.prezzo = prezzo;
     }
 
-    public BigDecimal getPrezzo(){
+    public BigDecimal getPrezzo() {
         return prezzo;
     }
 
-    public void setIva(BigDecimal iva){
+    public void setIva(BigDecimal iva) {
         this.iva = iva;
     }
 
-    public BigDecimal getIva(){
+    public BigDecimal getIva() {
         return iva;
     }
 
-
     public BigDecimal getPriceIva() {
-        if(prezzo != null && iva != null){
-            return prezzo.add(prezzo.multiply(iva).setScale(2, RoundingMode.DOWN)); //setscale per gestire l'arrotondamento
-        }else{
+        if (prezzo != null && iva != null) {
+            return prezzo.add(prezzo.multiply(iva).setScale(2, RoundingMode.DOWN)); // setscale per gestire l'arrotondamento
+        } else {
             return null;
         }
-       
+
+    }
+
+    public void setSconto(boolean cartaFedelta) {
+        if (cartaFedelta == true) {
+            this.prezzoScontato = getPriceIva().subtract(getPriceIva().multiply(new BigDecimal(0.02)).setScale(2, RoundingMode.DOWN));
+        }else{
+            this.prezzoScontato = getPriceIva();
+        }
+    }
+
+    public BigDecimal getSconto(){
+        return prezzoScontato;
     }
 
     public String getFullName() {
         return code + "-" + nome;
     }
 
-    public String toString(){
-        return String.format("nome del prodotto: %s, marca: %s, prezzo: %.2f", this.nome , this.marca, getPriceIva());
+    public String toString() {
+        return String.format("nome del prodotto: %s, marca: %s, prezzo: %.2f. con cartà fedelta sconto a %.2f", this.nome, this.marca, getPriceIva(), getSconto());
     }
 }
