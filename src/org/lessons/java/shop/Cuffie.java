@@ -30,7 +30,8 @@ public class Cuffie extends Prodotto{
         return wireless;
     }
 
-    public void printCuffie(){
-        System.out.println(nome + " " + marca + " " + colore + " " + wireless + " " + getCode() + " " + getPriceIva());
+    @Override
+    public String toString(){
+        return super.toString() + String.format(" colore: %s, wireless: %b", this.colore, this.wireless);
     }
 }

@@ -14,8 +14,9 @@ public class main {
 
         Cuffie rgb = new Cuffie("rgb", "logitech" ,new BigDecimal(230), new BigDecimal(0.22), "verde", false);
 
-        s20.printSmartphone();
-        lg.printTelevisore();
-        rgb.printCuffie();
+        
+
+        System.out.println(lg);
+
     }
 }

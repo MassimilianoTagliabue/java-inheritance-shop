@@ -30,7 +30,8 @@ public class Smatphone extends Prodotto{
         return memoria;
     }
 
-    public void printSmartphone(){
-        System.out.println(nome + " " + marca + " " + codiceIMEI + " " + memoria + " " + getCode()+ " " + getPriceIva());
+    @Override
+    public String toString(){
+        return super.toString() + String.format(" con codice IMEI: %d, e memoria: %dGB" , this.codiceIMEI, this.memoria);
     }
 }

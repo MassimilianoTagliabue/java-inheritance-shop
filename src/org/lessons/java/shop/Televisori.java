@@ -29,7 +29,8 @@ public class Televisori extends Prodotto{
         return smart;
     }
 
-    public void printTelevisore(){
-        System.out.println(nome + "" + marca + " " + pollici + " " + smart + " " + getCode() + " " + getPriceIva());
+    @Override
+    public String toString(){
+        return super.toString() + String.format(" misure: %d pollici, smart: %b", this.pollici, this.smart);
     }
 }

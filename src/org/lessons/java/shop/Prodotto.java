@@ -73,4 +73,8 @@ public class Prodotto {
     public String getFullName() {
         return code + "-" + nome;
     }
+
+    public String toString(){
+        return String.format("nome del prodotto: %s, marca: %s, prezzo: %.2f", this.nome , this.marca, getPriceIva());
+    }
 }
